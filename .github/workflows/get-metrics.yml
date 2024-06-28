@@ -1,0 +1,17 @@
+name: get-metrics
+on:
+  push:
+    branches:
+      - main
+jobs:
+  get-metrics:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+      - name: 1. Run  Python Script
+        run: python3 workbench.py
+
+
